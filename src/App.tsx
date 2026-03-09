@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import NotFound from './pages/NotFound'
 import Profile from './pages/Profile'
+import Search from './pages/Search'
 
 function AppLayout() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
       <Route path="/" element={<AppLayout />}>
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
+        <Route path="search" element={<Search />} />
         <Route path="profile/:id" element={<Profile />} />
         <Route path="*" element={<NotFound />} />
       </Route>
