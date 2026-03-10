@@ -2,6 +2,7 @@ import { Outlet, Routes, Route } from 'react-router-dom'
 import { Header } from './components/Header'
 import Home from './pages/Home'
 import About from './pages/About'
+import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import Profile from './pages/Profile'
 
@@ -22,6 +23,7 @@ export default function App() {
       <Route path="/" element={<AppLayout />}>
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
         <Route path="profile/:id" element={<Profile />} />
         <Route path="*" element={<NotFound />} />
       </Route>

@@ -6,6 +6,7 @@ const APP_NAME = 'AI Automation'
 const navItems = [
   { to: '/', label: 'Home', end: true },
   { to: '/about', label: 'About', end: false },
+  { to: '/contact', label: 'Contact Us', end: false },
 ] as const
 
 export function Header() {
