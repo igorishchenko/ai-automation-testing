@@ -9,8 +9,7 @@ export default function NotFound() {
       </p>
       <Link
         to="/"
-        className="mt-4 inline-block rounded bg-slate-800 px-4 py-2 font-medium text-white transition-colors hover:bg-slate-700"
-        aria-label="Go back to home page"
+        className="mt-4 inline-flex min-h-11 items-center justify-center rounded-md bg-slate-900 px-5 text-base font-semibold text-white transition-colors duration-200 hover:bg-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 focus-visible:ring-offset-2"
       >
         Go to Home
       </Link>
