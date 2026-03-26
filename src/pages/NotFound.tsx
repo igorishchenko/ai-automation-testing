@@ -1,19 +1,22 @@
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { Banner } from '../components/Banner'
+import { Button } from '../components/Button'
 
 export default function NotFound() {
+  const navigate = useNavigate()
+
   return (
-    <div className="rounded-lg bg-white p-6 shadow-sm text-center">
-      <h1 className="text-2xl font-semibold text-slate-800">Page not found</h1>
-      <p className="mt-2 text-slate-600">
-        The page you are looking for does not exist or has been moved.
-      </p>
-      <Link
-        to="/"
-        className="mt-4 inline-block rounded bg-slate-800 px-4 py-2 font-medium text-white transition-colors hover:bg-slate-700"
-        aria-label="Go back to home page"
-      >
-        Go to Home
-      </Link>
+    <div className="space-y-4">
+      <Banner
+        title="Page not found"
+        description="The page you are looking for does not exist or has been moved."
+        tone="warning"
+      />
+      <div className="rounded-lg bg-white p-6 text-center shadow-sm">
+        <Button onClick={() => navigate('/')} aria-label="Go back to home page">
+          Go to Home
+        </Button>
+      </div>
     </div>
   )
 }

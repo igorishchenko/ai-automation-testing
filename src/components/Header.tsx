@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
+import { Button } from './Button'
 
 const APP_NAME = 'AI Automation'
 
@@ -42,9 +43,10 @@ export function Header() {
           {APP_NAME}
         </NavLink>
 
-        <button
-          type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-md text-slate-600 hover:bg-slate-100 hover:text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 md:hidden"
+        <Button
+          variant="ghost"
+          size="icon"
+          className="text-slate-600 hover:text-slate-800 md:hidden"
           onClick={() => setMobileMenuOpen((open) => !open)}
           aria-expanded={mobileMenuOpen}
           aria-controls="main-nav"
@@ -73,7 +75,7 @@ export function Header() {
               />
             )}
           </svg>
-        </button>
+        </Button>
 
         <nav
           id="main-nav"
