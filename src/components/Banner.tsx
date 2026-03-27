@@ -7,7 +7,7 @@ type BannerProps = {
 
 export function Banner({ streakDays = 12, className = '' }: BannerProps) {
   const classes = [
-    'relative w-full max-w-[345.55px] overflow-hidden rounded-[24px] bg-gradient-to-b from-[#00D9FF] to-[#8B5CF6] p-6',
+    'relative h-[155.97px] w-full max-w-[345.55px] overflow-hidden rounded-[24px] bg-gradient-to-b from-[#00D9FF] to-[#8B5CF6] p-6 text-left',
     className,
   ]
     .filter(Boolean)
