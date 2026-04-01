@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 
 const APP_NAME = 'AI Automation'
 
@@ -10,7 +10,9 @@ const navItems = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
   const location = useLocation()
+  const navigate = useNavigate()
 
   const getAriaCurrent = useCallback(
     (to: string, end: boolean) => {
@@ -18,6 +20,18 @@ export function Header() {
       return location.pathname === to ? 'page' : undefined
     },
     [location.pathname]
+  )
+
+  const handleSearchSubmit = useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault()
+      const trimmed = searchQuery.trim()
+      if (trimmed) {
+        navigate(`/search?q=${encodeURIComponent(trimmed)}`)
+        setMobileMenuOpen(false)
+      }
+    },
+    [searchQuery, navigate]
   )
 
   useEffect(() => {
@@ -82,6 +96,31 @@ export function Header() {
           }`}
           aria-label="Main navigation"
         >
+          <form
+            role="search"
+            className="flex items-center gap-2 py-2 md:py-0"
+            onSubmit={handleSearchSubmit}
+          >
+            <label htmlFor="global-search" className="sr-only">
+              Search content
+            </label>
+            <input
+              id="global-search"
+              type="search"
+              placeholder="Search…"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="rounded-md border border-slate-300 px-3 py-1.5 text-sm text-slate-800 placeholder:text-slate-500 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500"
+              autoComplete="off"
+            />
+            <button
+              type="submit"
+              className="rounded-md bg-slate-700 px-3 py-1.5 text-sm font-medium text-white transition-colors hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2"
+              aria-label="Submit search"
+            >
+              Search
+            </button>
+          </form>
           {navItems.map(({ to, label, end }) => (
             <NavLink
               key={to}
