@@ -1,6 +1,6 @@
 import { Outlet, Routes, Route } from 'react-router-dom'
 import { Header } from './components/Header'
-import Home from './pages/Home'
+import Home, { Favorites } from './pages/Home'
 import About from './pages/About'
 import NotFound from './pages/NotFound'
 import Profile from './pages/Profile'
@@ -21,6 +21,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<AppLayout />}>
         <Route index element={<Home />} />
+        <Route path="favorites" element={<Favorites />} />
         <Route path="about" element={<About />} />
         <Route path="profile/:id" element={<Profile />} />
         <Route path="*" element={<NotFound />} />

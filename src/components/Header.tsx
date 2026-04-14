@@ -5,6 +5,7 @@ const APP_NAME = 'AI Automation'
 
 const navItems = [
   { to: '/', label: 'Home', end: true },
+  { to: '/favorites', label: 'Favorites', end: false },
   { to: '/about', label: 'About', end: false },
 ] as const
 
@@ -55,7 +56,7 @@ export function Header() {
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
-            aria-hidden
+            aria-hidden="true"
           >
             {mobileMenuOpen ? (
               <path
