@@ -1,10 +1,10 @@
 import React from 'react';
 
-export function SomeNewPage() {
-  return (
-    <div>
-      <h1 style={{ color: 'blue' }}>This is title</h1>
-      <p style={{ textTransform: 'uppercase' }}>This is description</p>
-    </div>
-  );
-}
+const SomeNewPage = () => (
+  <div>
+    <h1 style={{ color: 'red' }}>This is title</h1>
+    <p style={{ textTransform: 'uppercase' }}>This is description</p>
+  </div>
+);
+
+export default SomeNewPage;

@@ -6,8 +6,8 @@ const APP_NAME = 'AI Automation';
 const navItems = [
   { to: '/', label: 'Home', end: true },
   { to: '/about', label: 'About', end: false },
-  { to: '/some-new-page', label: 'Some New Page', end: false },
-] as const;
+  { to: '/some-new-page', label: 'Some New Page', end: false }
+];
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
