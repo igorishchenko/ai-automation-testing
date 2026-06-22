@@ -1,30 +1,25 @@
-import { Outlet, Routes, Route } from 'react-router-dom'
-import { Header } from './components/Header'
-import Home from './pages/Home'
-import About from './pages/About'
-import NotFound from './pages/NotFound'
-import Profile from './pages/Profile'
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import Profile from './pages/Profile';
+import NotFound from './pages/NotFound';
+import Subscription from './pages/Subscription';
+import Header from './components/Header';
 
-function AppLayout() {
+function App() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <Router>
       <Header />
-      <main className="mx-auto max-w-4xl px-4 py-8">
-        <Outlet />
-      </main>
-    </div>
-  )
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/subscription" element={<Subscription />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<AppLayout />}>
-        <Route index element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="profile/:id" element={<Profile />} />
-        <Route path="*" element={<NotFound />} />
-      </Route>
-    </Routes>
-  )
-}
+export default App;
