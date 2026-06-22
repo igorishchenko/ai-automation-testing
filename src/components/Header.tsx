@@ -1,34 +1,35 @@
-import { useState, useCallback, useEffect } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { useState, useCallback, useEffect } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 
-const APP_NAME = 'AI Automation'
+const APP_NAME = 'AI Automation';
 
 const navItems = [
   { to: '/', label: 'Home', end: true },
   { to: '/about', label: 'About', end: false },
-] as const
+  { to: '/some-new-page', label: 'Some New Page', end: false }
+];
 
 export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const location = useLocation()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   const getAriaCurrent = useCallback(
     (to: string, end: boolean) => {
-      if (end && to === '/') return location.pathname === '/' ? 'page' : undefined
-      return location.pathname === to ? 'page' : undefined
+      if (end && to === '/') return location.pathname === '/' ? 'page' : undefined;
+      return location.pathname === to ? 'page' : undefined;
     },
     [location.pathname]
-  )
+  );
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setMobileMenuOpen(false)
-    }
+      if (e.key === 'Escape') setMobileMenuOpen(false);
+    };
     if (mobileMenuOpen) {
-      document.addEventListener('keydown', onKeyDown)
-      return () => document.removeEventListener('keydown', onKeyDown)
+      document.addEventListener('keydown', onKeyDown);
+      return () => document.removeEventListener('keydown', onKeyDown);
     }
-  }, [mobileMenuOpen])
+  }, [mobileMenuOpen]);
 
   return (
     <header className="border-b border-slate-200 bg-white shadow-sm" role="banner">
@@ -103,5 +104,5 @@ export function Header() {
         </nav>
       </div>
     </header>
-  )
+  );
 }
