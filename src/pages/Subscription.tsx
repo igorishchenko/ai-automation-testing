@@ -1,24 +1,22 @@
 import React from 'react';
 
-const Subscription = () => {
+export function Subscription() {
   return (
     <div className="subscription-container">
-      <h1 className="subscription-title">Subscription Plans</h1>
-      <p className="subscription-description">Choose the plan that suits you best.</p>
-      <div className="plans">
+      <h1 className="subscription-title">Subscription</h1>
+      <p className="subscription-description">Choose your plan and enjoy our services.</p>
+      <div className="subscription-plans">
         <div className="plan">
-          <h2 className="plan-title">Basic</h2>
-          <p className="plan-price">$10/month</p>
-          <p className="plan-features">Includes basic features</p>
+          <h2 className="plan-title">Basic Plan</h2>
+          <p className="plan-price">$9.99/month</p>
+          <button className="plan-button">Subscribe</button>
         </div>
         <div className="plan">
-          <h2 className="plan-title">Premium</h2>
-          <p className="plan-price">$20/month</p>
-          <p className="plan-features">Includes all features</p>
+          <h2 className="plan-title">Premium Plan</h2>
+          <p className="plan-price">$19.99/month</p>
+          <button className="plan-button">Subscribe</button>
         </div>
       </div>
     </div>
   );
-};
-
-export default Subscription;
+}
