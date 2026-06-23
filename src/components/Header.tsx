@@ -7,6 +7,7 @@ const navItems = [
   { to: '/', label: 'Home', end: true },
   { to: '/about', label: 'About', end: false },
   { to: '/subscription', label: 'Subscription', end: false },
+  { to: '/morning-whisper-plus', label: 'Morning Whisper Plus', end: false },
 ] as const;
 
 export function Header() {
