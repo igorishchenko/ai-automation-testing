@@ -1,7 +1,11 @@
 {
   "mcpServers": {
-    "figma": {
-      "url": "https://mcp.figma.com/mcp"
+    "jira": {
+      "command": "bash",
+      "args": [
+        "-lc",
+        "set -a; source .env; set +a; npx -y @nexus2520/jira-mcp-server"
+      ]
     }
   }
 }
